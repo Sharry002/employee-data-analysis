@@ -53,3 +53,16 @@ The project uses 11 sample employee records across four departments: IT, HR, Fin
 
 ## Purpose
 This project demonstrates foundational SQL skills for entry-level data analysis roles.
+
+
+## Screenshots
+
+### 1. Total Employees
+![Total Employees](screenshots/employee-count.png)
+
+### 2. Average Salary by Department
+![Department Average Salaries](screenshots/department-averages.png)
+
+### 3. Fourth-Highest Distinct Salary
+![Fourth-Highest Salary](screenshots/fourth-highest-salary.png)
+
