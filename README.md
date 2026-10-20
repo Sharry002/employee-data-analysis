@@ -36,6 +36,7 @@ Contains department names and their managers.
 8. Which employees joined after a specified date?
 9. Which managers are responsible for each employee's department?
 10. What is the total salary expense for each department?
+11. How can the fourth-highest distinct salary in the company be found using nested subqueries?
 
 ## Files
 - `01_create_tables.sql` — Creates the database tables.
