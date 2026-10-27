@@ -6,36 +6,57 @@ This beginner-level SQL project analyses employee data using Microsoft SQL Serve
 
 ## Database Tables
 
-### 1. `employees`
+### 1. Employees
 
-Contains employee information:
+The `employees` table contains:
 - Employee ID
 - Name and age
 - City and department
 - Salary
 - Joining date
 
-### 2. `departments`
+### 2. Departments
 
-Contains department names and their managers.
+The `departments` table contains department names and their managers.
 
 ## SQL Skills Demonstrated
 
+### SQL Basics
 - SELECT, WHERE, ORDER BY
 - DISTINCT, BETWEEN, IN, and LIKE
-- NULL handling and CASE expressions
-- Aggregate functions: COUNT, SUM, AVG, MIN, MAX
-- GROUP BY and HAVING
-- INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN
-- SELF JOIN and CROSS JOIN
-- Subqueries and correlated subqueries
-- IN, NOT IN, EXISTS, and NOT EXISTS
-- Salary comparisons and rankings
-- Window functions and the OVER() clause
-- PARTITION BY and window ORDER BY
-- Ranking functions: ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE()
-- Aggregate window functions: SUM(), AVG(), COUNT(), MIN(), MAX()
-- Value and offset functions: LAG(), LEAD(), FIRST_VALUE(), LAST_VALUE()
+- AND, OR, and filtering conditions
+- NULL handling with IS NULL and IS NOT NULL
+- CASE expressions
+
+### Aggregate Functions
+- COUNT(), SUM(), AVG(), MIN(), MAX()
+- GROUP BY
+- HAVING
+- Filtering grouped data
+
+### SQL Joins
+- INNER JOIN
+- LEFT JOIN
+- RIGHT JOIN
+- FULL OUTER JOIN
+- SELF JOIN
+- CROSS JOIN
+- Combining joins with filtering and aggregation
+
+### Subqueries
+- Nested subqueries
+- Correlated subqueries
+- IN and NOT IN
+- EXISTS and NOT EXISTS
+- Finding the fourth-highest distinct salary
+- Comparing employee salaries with company and department averages
+
+### Window Functions
+- OVER() and PARTITION BY
+- ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE()
+- Window aggregates: SUM(), AVG(), COUNT(), MIN(), MAX()
+- LAG() and LEAD()
+- FIRST_VALUE() and LAST_VALUE()
 - Running totals and window frames
 
 ## Project Questions
@@ -50,7 +71,7 @@ Contains department names and their managers.
 8. Which employees joined after a specified date?
 9. Which managers are responsible for each employee's department?
 10. What is the total salary expense for each department?
-11. How can the fourth-highest distinct salary be found using nested subqueries?
+11. How can the fourth-highest distinct salary be found using subqueries?
 12. How can employees be ranked by salary within each department?
 13. How can the previous or next employee's salary be retrieved?
 14. How can a running total of salaries be calculated?
@@ -63,14 +84,14 @@ Contains department names and their managers.
 |---|---|
 | `01_create_tables.sql` | Creates the database tables |
 | `02_insert_sample_data.sql` | Inserts sample employee and department records |
-| `03_basics.sql` | Covers basic SQL queries, filtering, sorting, and CASE expressions |
+| `03_basics.sql` | Covers basic SQL queries and filtering |
 | `04_aggregates.sql` | Covers aggregate functions, GROUP BY, and HAVING |
 | `05_window_functions.sql` | Demonstrates SQL window functions |
 | `06_joins.sql` | Demonstrates different SQL joins |
 | `07_subqueries.sql` | Covers nested and correlated subqueries |
-| `employee_analysis.sql` | Contains employee data analysis queries |
+| `employee_analysis.sql` | Contains employee analysis queries |
 
-## Tools
+## Tools Used
 
 - Microsoft SQL Server
 - SQL Server Management Studio (SSMS)
@@ -78,7 +99,11 @@ Contains department names and their managers.
 
 ## Dataset
 
-The project uses 11 sample employee records across four departments: IT, HR, Finance, and Marketing.
+The project uses 11 sample employee records across four departments:
+- IT
+- HR
+- Finance
+- Marketing
 
 ## Screenshots
 
@@ -116,4 +141,4 @@ The project uses 11 sample employee records across four departments: IT, HR, Fin
 
 ## Project Purpose
 
-This project demonstrates SQL skills developed for entry-level data analyst roles, including data retrieval, data aggregation, joins, subqueries, and window functions. It serves as a practical portfolio project showcasing SQL query writing and data analysis fundamentals.
+This project demonstrates practical SQL skills developed for entry-level data analyst roles. It showcases data retrieval, filtering, aggregation, joins, subqueries, salary analysis, and window functions using a sample employee dataset.
