@@ -92,11 +92,11 @@ The following observations are based on the 11 fictional employee records includ
 - **Amritsar has the most employees** in this sample, with 5; Delhi and Ludhiana each have 3.
 - **The highest individual salary is ₹60,000**, and the fourth-highest distinct salary is ₹45,000.
 
-### Recommendations and limitations
+### What I noticed
 
-- Review department-level salary patterns alongside job roles, experience, and responsibilities before making compensation decisions.
-- Consider whether the Marketing department's single-record sample is enough to compare it fairly with larger departments.
-- For stronger conclusions, add more records and relevant context such as role, seniority, performance, and employment type.
+- Finance has the highest average salary in this sample.
+- Marketing has only one employee, so its average is based on just one salary.
+- This is a small practice dataset, so the results show what I learned from SQL rather than how a real company pays its employees.
 
 ## Project Files
 
