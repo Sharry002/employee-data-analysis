@@ -107,13 +107,5 @@ SELECT city
 FROM employees
 WHERE city = 'Delhi';
 
--- DML SAFETY EXAMPLES: review the WHERE clause before running.
--- UPDATE employees
--- SET salary = 36000
--- WHERE employee_id = 1;
 
--- DELETE FROM employees
--- WHERE employee_id = 1;
-
--- Never run UPDATE or DELETE without checking the intended rows first.
 -- END OF SQL BASICS
