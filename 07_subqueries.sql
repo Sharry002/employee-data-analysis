@@ -1,49 +1,32 @@
--- 1. SUBQUERY WITH WHERE
--- Find employees earning more than the company average.
+-- SQL SUBQUERIES
+-- Database: SQL Server
+-- Run after creating and populating the project tables.
 
-SELECT
-    name,
-    department,
-    salary
+-- 1. Find employees earning more than the company average.
+SELECT name, department, salary
 FROM employees
 WHERE salary > (
     SELECT AVG(salary)
     FROM employees
 );
 
-
--- 2. SUBQUERY WITH MAX()
--- Find the highest-paid employee.
-
-SELECT
-    name,
-    department,
-    salary
+-- 2. Find the highest-paid employee(s).
+SELECT name, department, salary
 FROM employees
 WHERE salary = (
     SELECT MAX(salary)
     FROM employees
 );
 
-
--- 3. SUBQUERY WITH MIN()
--- Find the lowest-paid employee.
-
-SELECT
-    name,
-    department,
-    salary
+-- 3. Find the lowest-paid employee(s).
+SELECT name, department, salary
 FROM employees
 WHERE salary = (
     SELECT MIN(salary)
     FROM employees
 );
 
-
--- 4. SUBQUERY WITH GROUP BY
--- Find departments whose average salary is
--- higher than the company-wide average salary.
-
+-- 4. Find departments whose average salary exceeds the company average.
 SELECT
     department,
     AVG(salary) AS department_avg
@@ -54,15 +37,8 @@ HAVING AVG(salary) > (
     FROM employees
 );
 
-
--- 5. SUBQUERY WITH IN
--- Find employees who work in departments
--- that have at least three employees.
-
-SELECT
-    name,
-    department,
-    salary
+-- 5. Find employees in departments with at least three employees.
+SELECT name, department, salary
 FROM employees
 WHERE department IN (
     SELECT department
@@ -71,14 +47,8 @@ WHERE department IN (
     HAVING COUNT(*) >= 3
 );
 
-
--- 6. SUBQUERY WITH NOT IN
--- Find employees who do not work in IT or HR.
-
-SELECT
-    name,
-    department,
-    salary
+-- 6. Find employees outside IT and HR.
+SELECT name, department, salary
 FROM employees
 WHERE department NOT IN (
     SELECT department
@@ -86,11 +56,8 @@ WHERE department NOT IN (
     WHERE department IN ('IT', 'HR')
 );
 
-
--- 7. FOURTH-HIGHEST DISTINCT SALARY
--- Find the fourth-highest distinct salary using
--- nested subqueries.
-
+-- 7. Find the fourth-highest distinct salary.
+-- Returns NULL if there are fewer than four distinct salary values.
 SELECT MAX(salary) AS fourth_highest_salary
 FROM employees
 WHERE salary < (
@@ -106,11 +73,7 @@ WHERE salary < (
     )
 );
 
-
--- 8. CORRELATED SUBQUERY
--- Find employees earning more than their
--- own department's average salary.
-
+-- 8. Find employees earning more than their own department average.
 SELECT
     e.name,
     e.department,
@@ -122,13 +85,8 @@ WHERE e.salary > (
     WHERE e2.department = e.department
 );
 
-
--- 9. EXISTS
--- Find departments that have at least one employee.
-
-SELECT
-    d.department,
-    d.manager
+-- 9. Find departments with at least one employee.
+SELECT d.department, d.manager
 FROM departments AS d
 WHERE EXISTS (
     SELECT 1
@@ -136,19 +94,15 @@ WHERE EXISTS (
     WHERE e.department = d.department
 );
 
-
--- 10. NOT EXISTS
--- Find departments with no matching employees.
-
-SELECT
-    d.department,
-    d.manager
+-- 10. Find departments with no employees.
+-- With the current sample data, this correctly returns no rows because
+-- IT, HR, Finance, and Marketing all have employees.
+SELECT d.department, d.manager
 FROM departments AS d
 WHERE NOT EXISTS (
     SELECT 1
     FROM employees AS e
     WHERE e.department = d.department
 );
-
 
 -- END OF SQL SUBQUERIES
