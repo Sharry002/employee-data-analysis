@@ -1,7 +1,7 @@
 # Employee Data Analysis — SQL Server
 
 ## Project Overview
-This beginner-level SQL project analyses employee data using Microsoft SQL Server. It explores employee salaries, department-level statistics, workforce distribution, and joining dates.
+This beginner-level SQL project analyses employee data using Microsoft SQL Server. It explores employee salaries, department-level statistics, workforce distribution, joining dates, and SQL window functions.
 
 ## Database Tables
 
@@ -24,6 +24,12 @@ Contains department names and their managers.
 - INNER JOIN
 - Salary comparisons and rankings
 - Filtering and sorting data
+- Window functions and the OVER() clause
+- PARTITION BY and window ORDER BY
+- Ranking functions: ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE()
+- Aggregate window functions: SUM(), AVG(), COUNT(), MIN(), MAX()
+- Value and offset functions: LAG(), LEAD(), FIRST_VALUE(), LAST_VALUE()
+- Running totals and window frames
 
 ## Project Questions
 1. How many employees are in the company?
@@ -37,11 +43,15 @@ Contains department names and their managers.
 9. Which managers are responsible for each employee's department?
 10. What is the total salary expense for each department?
 11. How can the fourth-highest distinct salary in the company be found using nested subqueries?
+12. How can employees be ranked by salary within each department?
+13. How can the previous or next employee's salary be retrieved?
+14. How can a running total of salaries be calculated?
 
 ## Files
 - `01_create_tables.sql` — Creates the database tables.
 - `02_insert_sample_data.sql` — Inserts sample department and employee records.
 - `employee_analysis.sql` — Contains SQL analysis queries.
+- `05_window_functions.sql` — Contains window function practice queries and examples.
 
 ## Tools
 - Microsoft SQL Server
@@ -52,8 +62,7 @@ Contains department names and their managers.
 The project uses 11 sample employee records across four departments: IT, HR, Finance, and Marketing.
 
 ## Purpose
-This project demonstrates foundational SQL skills for entry-level data analysis roles.
-
+This project demonstrates SQL skills developed for entry-level data analysis roles, including data retrieval, aggregation, joins, subqueries, and window functions.
 
 ## Screenshots
 
@@ -66,3 +75,8 @@ This project demonstrates foundational SQL skills for entry-level data analysis 
 ### 3. Fourth-Highest Distinct Salary
 ![Fourth-Highest Salary](screenshots/fourth-highest-salary.png)
 
+### 4. Window Function — Department Ranking
+![Department Ranking](screenshots/window_ranking.png)
+
+### 5. Window Function — Previous Employee Salary
+![Previous Employee Salary](screenshots/window_lag.png)
