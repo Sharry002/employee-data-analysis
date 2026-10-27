@@ -51,14 +51,17 @@ SELECT
 	-- Highest salary in each department
 
 
-SELECT name, salary, department
-FROM employees
-WHERE salary IN (
-    SELECT MAX(salary)
-    FROM employees
-    GROUP BY department
+SELECT
+    e.name,
+    e.salary,
+    e.department
+FROM employees AS e
+WHERE e.salary = (
+    SELECT MAX(e2.salary)
+    FROM employees AS e2
+    WHERE e2.department = e.department
 )
-ORDER BY salary DESC;
+ORDER BY e.salary DESC;
 
 
 -- Highest salary in each department
