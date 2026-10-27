@@ -1,133 +1,73 @@
--- 1. SELECT
--- Display all employees.
+-- SQL BASICS
+-- Database: SQL Server
+-- Run after 01_create_tables.sql and 02_insert_sample_data.sql.
 
+-- 1. SELECT: display all employees.
 SELECT *
 FROM employees;
 
-
--- 2. SELECT SPECIFIC COLUMNS
--- Display employee names, departments, and salaries.
-
-SELECT
-    name,
-    department,
-    salary
+-- 2. SELECT specific columns.
+SELECT name, department, salary
 FROM employees;
 
-
--- 3. WHERE
--- Find employees earning more than 40000.
-
-SELECT
-    name,
-    salary
+-- 3. WHERE: filter rows before grouping.
+SELECT name, salary
 FROM employees
 WHERE salary > 40000;
 
-
--- 4. DISTINCT
--- Display unique cities.
-
-SELECT DISTINCT
-    city
+-- 4. DISTINCT: show unique cities.
+SELECT DISTINCT city
 FROM employees;
 
-
--- 5. AND
--- Find IT employees earning more than 30000.
-
-SELECT
-    name,
-    department,
-    salary
+-- 5. AND: both conditions must be true.
+SELECT name, department, salary
 FROM employees
 WHERE department = 'IT'
   AND salary > 30000;
 
-
--- 6. OR
--- Find employees working in HR or Finance.
-
-SELECT
-    name,
-    department
+-- 6. OR: either condition can be true.
+SELECT name, department
 FROM employees
 WHERE department = 'HR'
    OR department = 'Finance';
 
-
--- 7. BETWEEN
--- Find employees earning between 30000 and 45000.
-
-SELECT
-    name,
-    salary
+-- 7. BETWEEN: inclusive range endpoints.
+SELECT name, salary
 FROM employees
 WHERE salary BETWEEN 30000 AND 45000;
 
-
--- 8. IN
--- Find employees from Amritsar or Delhi.
-
-SELECT
-    name,
-    city
+-- 8. IN: match any value in a list.
+SELECT name, city
 FROM employees
 WHERE city IN ('Amritsar', 'Delhi');
 
-
--- 9. LIKE
--- Find employees whose names start with A.
-
-SELECT
-    name
+-- 9. LIKE: names beginning with A.
+SELECT name
 FROM employees
 WHERE name LIKE 'A%';
 
-
--- 10. ORDER BY
--- Display employees from highest to lowest salary.
-
-SELECT
-    name,
-    salary
+-- 10. ORDER BY: highest salary first.
+SELECT name, salary
 FROM employees
 ORDER BY salary DESC;
 
-
--- 11. TOP
--- Display the five highest-paid employees.
-
-SELECT TOP 5
-    name,
-    salary
+-- 11. TOP: five highest-paid employees (SQL Server syntax).
+SELECT TOP 5 name, salary
 FROM employees
 ORDER BY salary DESC;
 
-
--- 12. IS NULL
--- Find employees whose city is missing.
-
-SELECT
-    name,
-    city
+-- 12. IS NULL: find missing city values.
+-- With the supplied sample data, this returns no rows because every city is populated.
+SELECT name, city
 FROM employees
 WHERE city IS NULL;
 
-
--- 13. IS NOT NULL
--- Find employees whose city is available.
-
-SELECT
-    name,
-    city
+-- 13. IS NOT NULL: find rows where city is present.
+SELECT name, city
 FROM employees
 WHERE city IS NOT NULL;
 
-
--- 14. CASE
--- Categorize employees based on salary.
-
+-- 14. CASE: classify salaries.
 SELECT
     name,
     salary,
@@ -138,5 +78,42 @@ SELECT
     END AS salary_category
 FROM employees;
 
+-- 15. NOT: exclude a department.
+SELECT name, department
+FROM employees
+WHERE NOT department = 'HR';
 
+-- 16. COUNT(*) counts rows; COUNT(city) counts only non-NULL city values.
+SELECT
+    COUNT(*) AS total_rows,
+    COUNT(city) AS rows_with_city
+FROM employees;
+
+-- 17. UNION removes duplicate rows from the combined results.
+SELECT city AS place
+FROM employees
+WHERE city = 'Amritsar'
+UNION
+SELECT city
+FROM employees
+WHERE city = 'Delhi';
+
+-- 18. UNION ALL keeps duplicates (if any).
+SELECT city AS place
+FROM employees
+WHERE city = 'Amritsar'
+UNION ALL
+SELECT city
+FROM employees
+WHERE city = 'Delhi';
+
+-- DML SAFETY EXAMPLES: review the WHERE clause before running.
+-- UPDATE employees
+-- SET salary = 36000
+-- WHERE employee_id = 1;
+
+-- DELETE FROM employees
+-- WHERE employee_id = 1;
+
+-- Never run UPDATE or DELETE without checking the intended rows first.
 -- END OF SQL BASICS
