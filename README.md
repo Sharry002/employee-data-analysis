@@ -2,143 +2,134 @@
 
 ## Project Overview
 
-This beginner-level SQL project analyses employee data using Microsoft SQL Server. It explores employee salaries, department-level statistics, workforce distribution, joining dates, and SQL window functions.
+This beginner-friendly SQL portfolio project analyses a sample employee dataset using Microsoft SQL Server. It explores salaries, department statistics, employee locations, joining dates, joins, subqueries, and window functions.
+
+The dataset is fictional and intended for learning and demonstration.
+
+## How to Run the Project
+
+1. Install Microsoft SQL Server and SQL Server Management Studio (SSMS), and connect to your SQL Server instance.
+2. Create a new database, for example `EmployeeAnalysis`, and select it.
+3. Run the scripts in this order:
+   - `01_create_tables.sql` — creates the `employees` and `departments` tables.
+   - `02_insert_sample_data.sql` — inserts the sample records.
+4. Run any of the remaining analysis scripts:
+   - `03_basics.sql`
+   - `04_aggregates.sql`
+   - `05_window_functions.sql`
+   - `06_joins.sql`
+   - `07_subqueries.sql`
+   - `employee_analysis.sql`
+
+**Important:** The setup scripts are for a fresh, empty project database. Do not rerun the table-creation or insert scripts on top of an already populated copy unless you first reset the tables/database. The scripts use SQL Server syntax.
 
 ## Database Tables
 
-### 1. Employees
+### `employees`
 
-The `employees` table contains:
-- Employee ID
-- Name and age
-- City and department
-- Salary
-- Joining date
+Contains employee ID, name, age, city, department, salary, and joining date.
 
-### 2. Departments
+### `departments`
 
-The `departments` table contains department names and their managers.
+Contains department names and their managers. The employee department column is linked to the departments table by a foreign key.
 
 ## SQL Skills Demonstrated
 
-### SQL Basics
-- SELECT, WHERE, ORDER BY
-- DISTINCT, BETWEEN, IN, and LIKE
-- AND, OR, and filtering conditions
-- NULL handling with IS NULL and IS NOT NULL
+### SQL basics
+- SELECT, WHERE, ORDER BY, DISTINCT
+- BETWEEN, IN, LIKE, AND, OR
+- NULL checks with IS NULL and IS NOT NULL
 - CASE expressions
 
-### Aggregate Functions
+### Aggregate functions
 - COUNT(), SUM(), AVG(), MIN(), MAX()
-- GROUP BY
-- HAVING
-- Filtering grouped data
+- GROUP BY and HAVING
 
-### SQL Joins
-- INNER JOIN
-- LEFT JOIN
-- RIGHT JOIN
-- FULL OUTER JOIN
-- SELF JOIN
-- CROSS JOIN
-- Combining joins with filtering and aggregation
+### Joins
+- INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN
+- SELF JOIN and CROSS JOIN
+- Joins with filtering, ordering, and aggregation
 
 ### Subqueries
-- Nested subqueries
-- Correlated subqueries
-- IN and NOT IN
-- EXISTS and NOT EXISTS
+- Nested and correlated subqueries
+- IN, NOT IN, EXISTS, and NOT EXISTS
+- Comparing salaries against company and department averages
 - Finding the fourth-highest distinct salary
-- Comparing employee salaries with company and department averages
 
-### Window Functions
+### Window functions
 - OVER() and PARTITION BY
 - ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE()
-- Window aggregates: SUM(), AVG(), COUNT(), MIN(), MAX()
-- LAG() and LEAD()
-- FIRST_VALUE() and LAST_VALUE()
+- Window aggregates
+- LAG(), LEAD(), FIRST_VALUE(), LAST_VALUE()
 - Running totals and window frames
 
-## Project Questions
+## Questions Explored
 
 1. How many employees are in the company?
-2. What is the average salary?
-3. How many employees work in each department?
+2. What is the average salary across the company?
+3. How many employees work in each department and city?
 4. Which department has the highest average salary?
 5. Which employees earn more than the company average?
-6. What is the highest salary in each department?
-7. How are employees distributed across cities?
-8. Which employees joined after a specified date?
-9. Which managers are responsible for each employee's department?
-10. What is the total salary expense for each department?
-11. How can the fourth-highest distinct salary be found using subqueries?
-12. How can employees be ranked by salary within each department?
-13. How can the previous or next employee's salary be retrieved?
-14. How can a running total of salaries be calculated?
-15. How can employees earning above their department's average salary be identified?
-16. How can departments without matching employees be identified using subqueries?
+6. Who is the highest-paid employee in each department?
+7. Which employees joined after a specified date?
+8. Which manager is associated with each employee's department?
+9. What is the total salary expense for each department?
+10. What is the fourth-highest distinct salary?
+11. How can employees be ranked by salary within departments?
+12. How can the previous or next employee's salary be retrieved?
+13. How can running salary totals be calculated?
+14. Which employees earn above their department's average?
+15. How can departments without employees be found?
 
 ## Project Files
 
-| File | Description |
+| File | Purpose |
 |---|---|
-| `01_create_tables.sql` | Creates the database tables |
-| `02_insert_sample_data.sql` | Inserts sample employee and department records |
-| `03_basics.sql` | Covers basic SQL queries and filtering |
-| `04_aggregates.sql` | Covers aggregate functions, GROUP BY, and HAVING |
-| `05_window_functions.sql` | Demonstrates SQL window functions |
-| `06_joins.sql` | Demonstrates different SQL joins |
-| `07_subqueries.sql` | Covers nested and correlated subqueries |
-| `employee_analysis.sql` | Contains employee analysis queries |
+| `01_create_tables.sql` | Creates the tables and relationship |
+| `02_insert_sample_data.sql` | Inserts sample data |
+| `03_basics.sql` | Basic queries and filtering |
+| `04_aggregates.sql` | Aggregates, GROUP BY, and HAVING |
+| `05_window_functions.sql` | Window functions |
+| `06_joins.sql` | Join examples |
+| `07_subqueries.sql` | Subquery examples |
+| `employee_analysis.sql` | Business-style employee analysis |
+
+## Dataset
+
+The sample data contains 11 employees across four departments: IT, HR, Finance, and Marketing. All records are fictional.
+
+## Screenshots
+
+### 1. Total Employees
+![Total Employees](screenshots/employee-count.png)
+
+### 2. Average Salary by Department
+![Department Average Salaries](screenshots/department-averages.png)
+
+### 3. Fourth-Highest Distinct Salary
+![Fourth-Highest Salary](screenshots/fourth-highest-salary.png)
+
+### 4. Window Function — Department Ranking
+![Department Ranking](screenshots/window_ranking.png)
+
+### 5. Window Function — Previous Employee Salary
+![Previous Employee Salary](screenshots/window_lag.png)
+
+### 6. Aggregate Functions
+![Aggregate Functions](screenshots/aggregate-functions.png)
+
+### 7. INNER JOIN
+![INNER JOIN Example](screenshots/inner-join.png)
+
+### 8. Subquery — Employees Earning Above Average
+![Subquery Example](screenshots/subquery-above-average.png)
 
 ## Tools Used
 
 - Microsoft SQL Server
 - SQL Server Management Studio (SSMS)
-- GitHub
+- Git and GitHub
 
-## Dataset
+## Purpose
 
-The project uses 11 sample employee records across four departments:
-- IT
-- HR
-- Finance
-- Marketing
-
-## Screenshots
-
-### 1. Total Employees
-
-![Total Employees](screenshots/employee-count.png)
-
-### 2. Average Salary by Department
-
-![Department Average Salaries](screenshots/department-averages.png)
-
-### 3. Fourth-Highest Distinct Salary
-
-![Fourth-Highest Salary](screenshots/fourth-highest-salary.png)
-
-### 4. Window Function — Department Ranking
-
-![Department Ranking](screenshots/window_ranking.png)
-
-### 5. Window Function — Previous Employee Salary
-
-![Previous Employee Salary](screenshots/window_lag.png)
-
-### 6. Aggregate Functions
-
-![Aggregate Functions](screenshots/aggregate-functions.png)
-
-### 7. INNER JOIN
-
-![INNER JOIN Example](screenshots/inner-join.png)
-
-### 8. Subquery — Employees Earning Above Average
-
-![Subquery Example](screenshots/subquery-above-average.png)
-
-## Project Purpose
-
-This project demonstrates practical SQL skills developed for entry-level data analyst roles. It showcases data retrieval, filtering, aggregation, joins, subqueries, salary analysis, and window functions using a sample employee dataset.
+This project demonstrates practical SQL skills for entry-level data analyst opportunities, including data retrieval, filtering, aggregation, joins, subqueries, and window functions.
