@@ -81,6 +81,23 @@ Contains department names and their managers. The employee department column is 
 14. Which employees earn above their department's average?
 15. How can departments without employees be found?
 
+## Business Insights
+
+The following observations are based on the 11 fictional employee records included in this project. They are descriptive findings from a small sample, not conclusions about a real company.
+
+- **Finance has the highest average salary:** ₹52,500 across 2 employees.
+- **IT has the largest department salary expense:** ₹170,000 across 4 employees. It also has the highest department headcount, tied with HR at 4 employees each.
+- **HR and Marketing have the same average salary:** ₹35,000. HR has 4 employees, while Marketing has only 1, so the averages have different levels of representation.
+- **Five employees earn above the overall average salary** of approximately ₹40,909.09.
+- **Amritsar has the most employees** in this sample, with 5; Delhi and Ludhiana each have 3.
+- **The highest individual salary is ₹60,000**, and the fourth-highest distinct salary is ₹45,000.
+
+### Recommendations and limitations
+
+- Review department-level salary patterns alongside job roles, experience, and responsibilities before making compensation decisions.
+- Consider whether the Marketing department's single-record sample is enough to compare it fairly with larger departments.
+- For stronger conclusions, add more records and relevant context such as role, seniority, performance, and employment type.
+
 ## Project Files
 
 | File | Purpose |
